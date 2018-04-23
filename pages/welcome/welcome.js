@@ -5,7 +5,7 @@ Page({
         // });
         
         wx.switchTab({
-            url: "../posts/post"
+            url: "../movies/movies"
         });
         
     }

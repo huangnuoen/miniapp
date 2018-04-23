@@ -58,3 +58,33 @@
   - 全局变量
   - 缓存
   - 发收事件
+
+### scroll-view 组件
+1. 要给scroll-view一个固定高度
+
+
+## 业务逻辑
+### 上拉到底部加载更多
+1. 方案一：使用scroll-view组件的scrolltolower事件
+  ```
+  bindscrolltolower="onScrollLower"
+  ```
+  - 需要设置高度
+2. 在onScrollLower中调用下一次请求
+  - nextUrl 为再次调用的url
+  - totalCount存储当前数据总数，**在每次回调中更新totalCount的值**
+  - requestUrl为主url
+3. 方案二：使用onReachBottom()监听页面上拉触底事件
+  - 可以在app.json的window选项中或页面配置中设置触发距离onReachBottomDistance。
+  - 在触发距离内滑动期间，本事件只会被触发一次。
+  - 可解决不能用onPullDownRefresh函数的问题
+  - 不需要定高度
+4. 处理movies数据
+  - 判断是否为第一次请求，通过isEmpty判断
+  - 非首次加载则将二次加载的数据追加到movies中，再setData
+
+### 下拉刷新
+1. 在page中定义onPullDownRefresh处理函数，监听该页面下拉刷新事件
+  - 需要在config的window选项中开启enablePullDownRefresh
+  - wx.stopPullDownRefresh可停止当前页面的下拉刷新
+2. 页面有scroll-view组件，则无法实现下拉刷新，只能在非scroll-view范围内使用
