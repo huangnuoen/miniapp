@@ -1,4 +1,4 @@
-<import src="../stars/stars-template.wxml" />
+<!-- <import src="../stars/stars-template.wxml" />
 <view class="container">
   <image class="head-img" src="{{movie.movieImg}}" mode="aspectFill" />
   <view class="head-img-hover" data-src="{{movie.movieImg}}" catchtap="viewMoviePostImg">
@@ -58,4 +58,4 @@
       </block>
     </scroll-view>
   </view>
-</view>
+</view> -->

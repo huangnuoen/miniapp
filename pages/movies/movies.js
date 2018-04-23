@@ -8,7 +8,7 @@ Page({
     inTheaters: {}, // 也可不先声明
     comingSoon: {},
     top250: {},
-    // searchResult: {},
+    searchResult: {},
     containerShow: true,
     searchPanelShow: false,
   },
@@ -28,12 +28,16 @@ Page({
       url: 'more-movie/more-movie?category=' + category
     })
   },
-
+  // 跳转到详情
   onMovieTap: function (event) {
-    var movieId = event.currentTarget.dataset.movieid;
+    var movieId = event.currentTarget.dataset.movieId;
     wx.navigateTo({
       url: "movie-detail/movie-detail?id=" + movieId
     })
+    // var movieId = event.currentTarget.dataset.movieid;
+    // wx.navigateTo({
+    //   url: "movie-detail/movie-detail?id=" + movieId
+    // })
   },
   // 请求数据
   getMovieListData: function (url, settedKey, categoryTitle) {
@@ -58,12 +62,8 @@ Page({
     this.setData({
       containerShow: true,
       searchPanelShow: false,
+      // searchResult: {}
     })
-    // this.setData({
-    //   containerShow: true,
-    //   searchPanelShow: false,
-    //   searchResult: {}
-    // })
   },
 
   onBindFocus: function (event) {
@@ -79,8 +79,11 @@ Page({
     // var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
     // this.getMovieListData(searchUrl, "searchResult", "");
   },
-  onBindChange: function (event) {
-    console.log('change')
+  onBindConfirm: function (event) {
+    var text = event.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    // 调用搜索接口
+    this.getMovieListData(searchUrl, 'searchResult', '');
   },
   // 处理数据
   processDoubanData: function (moviesDouban, settedKey, categoryTitle) {
@@ -93,7 +96,7 @@ Page({
       var temp = {
         title: title,
         average: item.rating.average,
-        stars: util.convertToStarsArray(item.rating.average/2),
+        stars: util.convertToStarsArray(item.rating.average / 2),
         coverageUrl: item.images.large,
         movieId: item.id,
       }
@@ -104,7 +107,10 @@ Page({
     // 储存数据
     var readyData = {};
     // 为了父子绑定的数据变量名一致，统一为movies变量
-    readyData[settedKey] = {movies: movies, categoryTitle: categoryTitle};
+    readyData[settedKey] = {
+      movies: movies,
+      categoryTitle: categoryTitle
+    };
     this.setData(readyData);
   }
 })

@@ -48,6 +48,7 @@
     }
   }
   ```
+  - tarBar的image不要用绝对路径
 5. wx.navigateBack(obj)
   - 关闭当前页面，返回上页或多级页面，getCurrentPages()可获取当前 的页面栈
 
@@ -58,6 +59,9 @@
   - 全局变量
   - 缓存
   - 发收事件
+
+## input 组件
+1. event.detail 携带表单数据
 
 ### scroll-view 组件
 1. 要给scroll-view一个固定高度
