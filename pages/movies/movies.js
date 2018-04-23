@@ -9,8 +9,8 @@ Page({
     comingSoon: {},
     top250: {},
     // searchResult: {},
-    // containerShow: true,
-    // searchPanelShow: false,
+    containerShow: true,
+    searchPanelShow: false,
   },
 
   onLoad: function (event) {
@@ -58,8 +58,12 @@ Page({
     this.setData({
       containerShow: true,
       searchPanelShow: false,
-      searchResult: {}
     })
+    // this.setData({
+    //   containerShow: true,
+    //   searchPanelShow: false,
+    //   searchResult: {}
+    // })
   },
 
   onBindFocus: function (event) {
@@ -70,9 +74,13 @@ Page({
   },
 
   onBindBlur: function (event) {
-    var text = event.detail.value;
-    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
-    this.getMovieListData(searchUrl, "searchResult", "");
+    console.log('blur')
+    // var text = event.detail.value;
+    // var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    // this.getMovieListData(searchUrl, "searchResult", "");
+  },
+  onBindChange: function (event) {
+    console.log('change')
   },
   // 处理数据
   processDoubanData: function (moviesDouban, settedKey, categoryTitle) {
