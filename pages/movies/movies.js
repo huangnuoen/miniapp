@@ -30,14 +30,11 @@ Page({
   },
   // 跳转到详情
   onMovieTap: function (event) {
+    
     var movieId = event.currentTarget.dataset.movieId;
     wx.navigateTo({
       url: "movie-detail/movie-detail?id=" + movieId
     })
-    // var movieId = event.currentTarget.dataset.movieid;
-    // wx.navigateTo({
-    //   url: "movie-detail/movie-detail?id=" + movieId
-    // })
   },
   // 请求数据
   getMovieListData: function (url, settedKey, categoryTitle) {

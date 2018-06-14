@@ -62,7 +62,7 @@ Page({
     // wx.showNavigationBarLoading();
   },
   // 上滑到底部事件
-  onReachBottom(){
+  onReachBottom() {
     // 下次加载的url
     var nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + '&count=20';
     util.http(nextUrl, this.processDoubanData);
@@ -116,7 +116,7 @@ Page({
   },
 
   onMovieTap: function (event) {
-    var movieId = event.currentTarget.dataset.movieid;
+    var movieId = event.currentTarget.dataset.movieId;
     wx.navigateTo({
       url: '../movie-detail/movie-detail?id=' + movieId
     })

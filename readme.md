@@ -92,3 +92,19 @@
   - 需要在config的window选项中开启enablePullDownRefresh
   - wx.stopPullDownRefresh可停止当前页面的下拉刷新
 2. 页面有scroll-view组件，则无法实现下拉刷新，只能在非scroll-view范围内使用
+
+## 处理空值的情况
+1. 对常用且经常为空的字段进行判空
+
+## util 存放公用方法
+1. 以模块方式输出 
+```
+module.exports = {
+  convertToStarsArray: convertToStarsArray,
+  http: http,
+  convertToCastString:convertToCastString,
+  convertToCastInfos:convertToCastInfos
+}
+```
+
+## image mode 图片缩放和裁剪
