@@ -108,3 +108,5 @@ module.exports = {
 ```
 
 ## image mode 图片缩放和裁剪
+
+## es6 class 用movie类封闭公共方法和属性
