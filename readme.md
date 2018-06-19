@@ -33,7 +33,7 @@
 3. wx.reLaunch(obj)
   - 关闭所有页面，打开到某个页面
 4. wx.switchTab(obj)
-  - 跳转到tabBar页面，并关闭所有非tabBar页面
+  - 只能跳转到tabBar页面，并关闭所有非tabBar页面
   - url 跳转的路径需在app.json的tabBar字段定义的页面，不能带参数
   ```
   {
@@ -91,7 +91,7 @@
 1. 在page中定义onPullDownRefresh处理函数，监听该页面下拉刷新事件
   - 需要在config的window选项中开启enablePullDownRefresh
   - wx.stopPullDownRefresh可停止当前页面的下拉刷新
-2. 页面有scroll-view组件，则无法实现下拉刷新，只能在非scroll-view范围内使用
+2. 页面有scroll-view组件，则无法实现下拉刷新，只能在非scroll-view范围内使用(scroll-view和下拉刷新无法同时使用)
 
 ## 处理空值的情况
 1. 对常用且经常为空的字段进行判空

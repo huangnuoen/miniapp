@@ -125,7 +125,7 @@
 .cast-font{
     color: #999;
     margin-bottom: 40rpx;
-}
+} 
 
 .cast-container{
     display:inline-flex;
@@ -136,7 +136,7 @@
     text-align:center;
     white-space: normal;
 }
-
+ 
 .cast-imgs{
     white-space: nowrap;
 }

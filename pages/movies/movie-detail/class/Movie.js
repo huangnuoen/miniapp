@@ -1,4 +1,16 @@
-var util = require('../../../../utils/util.js')
+var util = require('../../../../utils/util.js');
+class Movie {
+  constructor(url) {
+    this.url = url;
+  }
+
+  getMovieData(cb) {
+    this.cb = cb;
+    util.http(url, cb);
+  }
+}
+
+/* var util = require('../../../../utils/util.js')
 class Movie {
     constructor(url) {
         this.url = url;
@@ -46,4 +58,4 @@ class Movie {
     }
 }
 
-export {Movie}
+export {Movie} */
